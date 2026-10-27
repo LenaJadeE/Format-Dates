@@ -1,8 +1,10 @@
 package com.plurslsight;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class FormatDates {
     public static void  main(String[] args) {
@@ -16,10 +18,13 @@ public class FormatDates {
 
         System.out.println(now.format(DateTimeFormatter.ofPattern("EEEE, MMM d, yyyy")));
 
-        ZonedDateTime gmt
-        System.out.println(
-    }
+        ZonedDateTime gmtNow = ZonedDateTime.now(ZoneId.of("GMT"));
+        System.out.println(gmtNow.format(DateTimeFormatter.ofPattern("HH:mm")));
 
+        ZonedDateTime localNow = ZonedDateTime.now(ZoneId.systemDefault());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm 'on' dd-MMM-yyyy", Locale.ENGLISH);
+        System.out.println(localNow.format(formatter));
+    }
 
 }
 //  EXERCISE 2
